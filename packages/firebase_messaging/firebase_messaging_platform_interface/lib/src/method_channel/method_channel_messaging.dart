@@ -383,4 +383,15 @@ class MethodChannelFirebaseMessaging extends FirebaseMessagingPlatform {
       throw convertPlatformException(e);
     }
   }
+
+  
+  @override
+  Future<void> callTemp() async{
+    const MethodChannel _channel = MethodChannel(
+      'plugins.flutter.io/firebase_messaging_background',
+    );
+
+    _channel.invokeMethod<void>('Messaging#temp');
+  }
+
 }

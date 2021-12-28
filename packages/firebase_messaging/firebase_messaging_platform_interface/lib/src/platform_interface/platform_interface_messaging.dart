@@ -103,6 +103,14 @@ abstract class FirebaseMessagingPlatform extends PlatformInterface {
     }
   }
 
+  // Future<void> callTemp() async{
+  //   // _instance!.callTemp();
+  // }
+
+  Future<void> callTemp() {
+    throw UnimplementedError('callTemp() is not implemented');
+  }
+
   /// Enables delegates to create new instances of themselves if a none default
   /// [FirebaseApp] instance is required by the user.
   @protected
