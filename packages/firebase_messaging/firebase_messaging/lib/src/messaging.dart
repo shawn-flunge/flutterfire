@@ -116,6 +116,10 @@ class FirebaseMessaging extends FirebasePluginPlatform {
       vapidKey: vapidKey,
     );
   }
+  
+  void callTemp() {
+    _delegate.callTemp();
+  }
 
   /// Fires when a new FCM token is generated.
   Stream<String> get onTokenRefresh {
