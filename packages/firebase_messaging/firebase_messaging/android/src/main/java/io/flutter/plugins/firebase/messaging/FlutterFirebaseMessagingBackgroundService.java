@@ -70,7 +70,7 @@ public class FlutterFirebaseMessagingBackgroundService extends JobIntentService 
    */
   /* package */
   static void onInitialized() {
-    Log.i(TAG, "FlutterFirebaseMessagingBackgroundService started!");
+    Log.i(TAG, "FlutterFirebaseMessagingBackgroundService started!!");
     synchronized (messagingQueue) {
       // Handle all the message events received before the Dart isolate was
       // initialized, then clear the queue.
