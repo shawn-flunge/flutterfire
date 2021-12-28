@@ -11,6 +11,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationManagerCompat;
@@ -47,6 +48,7 @@ public class FlutterFirebaseMessagingPlugin extends BroadcastReceiver
   private MethodChannel channel;
   private Activity mainActivity;
   private RemoteMessage initialMessage;
+  private static final String TAG = "FLTFireMsgPlugin";
 
   private void initInstance(BinaryMessenger messenger) {
     String channelName = "plugins.flutter.io/firebase_messaging";
@@ -336,6 +338,8 @@ public class FlutterFirebaseMessagingPlugin extends BroadcastReceiver
       case "Messaging#getNotificationSettings":
         methodCallTask = getPermissions();
         break;
+      case "Messaging#temp":
+        Log.i(TAG, "please, It is called");
       default:
         result.notImplemented();
         return;
