@@ -54,7 +54,7 @@ public class FlutterFirebaseMessagingBackgroundService extends JobIntentService 
   @SuppressWarnings("JavadocReference")
   public static void startBackgroundIsolate(long callbackHandle, FlutterShellArgs shellArgs) {
     if (flutterBackgroundExecutor != null) {
-      Log.w(TAG, "Attempted to start a duplicate background isolate. Returning...");
+      Log.w(TAG, "Attempted to start a duplicate background isolate. Returning.....");
       return;
     }
     flutterBackgroundExecutor = new FlutterFirebaseMessagingBackgroundExecutor();
