@@ -121,6 +121,14 @@ class FirebaseMessaging extends FirebasePluginPlatform {
     _delegate.callTemp();
   }
 
+  void setIsSelectedTrue(){
+    _delegate.setIsSelectedTrue();
+  }
+
+  void setIsSelectedFalse(){
+    _delegate.setIsSelectedFalse();
+  }
+
   /// Fires when a new FCM token is generated.
   Stream<String> get onTokenRefresh {
     return _delegate.onTokenRefresh;
