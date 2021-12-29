@@ -391,7 +391,7 @@ class MethodChannelFirebaseMessaging extends FirebaseMessagingPlatform {
   
   @override
   Future<void> callTemp() async{
-    channel.invokeListMethod<void>('Messaging#temp');
+    channel.invokeMethod<void>('Messaging#temp');
   }
 
   @override

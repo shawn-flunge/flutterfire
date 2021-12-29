@@ -109,7 +109,7 @@ abstract class FirebaseMessagingPlatform extends PlatformInterface {
   //   // _instance!.callTemp();
   // }
 
-  Future<void> callTemp() {
+  void callTemp() {
     throw UnimplementedError('callTemp() is not implemented');
   }
 
