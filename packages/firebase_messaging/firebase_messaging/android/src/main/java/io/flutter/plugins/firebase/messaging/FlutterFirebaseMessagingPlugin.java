@@ -49,7 +49,7 @@ public class FlutterFirebaseMessagingPlugin extends BroadcastReceiver
   private Activity mainActivity;
   private RemoteMessage initialMessage;
   private static final String TAG = "FLTFireMsgPlugin";
-  private static bool isSelected = false;
+  private static Bool isSelected = false;
 
   private void initInstance(BinaryMessenger messenger) {
     String channelName = "plugins.flutter.io/firebase_messaging";
