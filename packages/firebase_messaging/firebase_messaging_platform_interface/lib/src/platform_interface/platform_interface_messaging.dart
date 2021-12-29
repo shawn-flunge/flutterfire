@@ -7,6 +7,7 @@ import 'dart:async';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging_platform_interface/firebase_messaging_platform_interface.dart';
+import 'package:flutter/services.dart';
 import 'package:meta/meta.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
@@ -102,6 +103,16 @@ abstract class FirebaseMessagingPlatform extends PlatformInterface {
       instance.registerBackgroundMessageHandler(handler);
     }
   }
+  static callMessagingTemp(){
+    print('callMessagingTemp');
+    const MethodChannel _channel = MethodChannel(
+      'plugins.flutter.io/firebase_messaging',
+    );
+
+    _channel.invokeMethod<void>('Messaging#temp');
+  }
+
+  
 
   // Future<void> callTemp() async{
   //   // _instance!.callTemp();
