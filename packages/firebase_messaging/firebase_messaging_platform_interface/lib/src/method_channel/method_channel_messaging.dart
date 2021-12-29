@@ -390,18 +390,18 @@ class MethodChannelFirebaseMessaging extends FirebaseMessagingPlatform {
 
   
   @override
-  Future<void> callTemp() async{
+  void callTemp(){
     channel.invokeMethod<void>('Messaging#temp');
   }
 
   @override
   void setIsSelectedTrue() {
-    channel.invokeMethod('Messaging#setIsSelectedFalse');    
+    channel.invokeMethod('Messaging#setIsSelectedTrue');    
   }
 
   @override
   void setIsSelectedFalse(){
-    channel.invokeMethod('Messaging#setIsSelectedTrue');
+    channel.invokeMethod('Messaging#setIsSelectedFalse');
   }
   
 
