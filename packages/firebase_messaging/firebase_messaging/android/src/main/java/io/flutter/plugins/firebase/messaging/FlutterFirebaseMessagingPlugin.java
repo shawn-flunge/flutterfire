@@ -346,7 +346,7 @@ public class FlutterFirebaseMessagingPlugin extends BroadcastReceiver
       case "Messaging#askIsSelected":
         Log.i(TAG, "askIsSelected");
         // result.success(isSelected);
-        channel.invokeMethod('Messaging#answerIsSelected', isSelected);
+        channel.invokeMethod("Messaging#answerIsSelected", isSelected);
         methodCallTask = Tasks.forResult(null);
         break;
       case "Messaging#setIsSelectedFalse":
