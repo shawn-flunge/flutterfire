@@ -287,4 +287,8 @@ public class FlutterFirebaseMessagingBackgroundExecutor implements MethodCallHan
         new MethodChannel(isolate, "plugins.flutter.io/firebase_messaging_background");
     backgroundChannel.setMethodCallHandler(this);
   }
+
+  public void deliverBackgroundIsolteFalseValue(){
+    
+  }
 }

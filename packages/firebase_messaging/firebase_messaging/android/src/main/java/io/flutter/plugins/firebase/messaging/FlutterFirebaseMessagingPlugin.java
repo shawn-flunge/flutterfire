@@ -49,6 +49,7 @@ public class FlutterFirebaseMessagingPlugin extends BroadcastReceiver
   private Activity mainActivity;
   private RemoteMessage initialMessage;
   private static final String TAG = "FLTFireMsgPlugin";
+  private static bool isSelected = false;
 
   private void initInstance(BinaryMessenger messenger) {
     String channelName = "plugins.flutter.io/firebase_messaging";
@@ -340,6 +341,19 @@ public class FlutterFirebaseMessagingPlugin extends BroadcastReceiver
         break;
       case "Messaging#temp":
         Log.i(TAG, "please, It is called");
+        methodCallTask = Tasks.forResult(null);
+      case "Messaging#askIsSelected":
+        Log.i(TAG, "askIsSelected");
+        result.success(isSelected);
+        methodCallTask = Tasks.forResult(null);
+      case "Messaging#setIsSelectedFalse":
+        Log.i(TAG, "setIsSelectedFalse");
+        isSelected = false;
+        methodCallTask = Tasks.forResult(null);
+      case "Messaging#setIsSelectedTrue":
+        Log.i(TAG, "setIsSelectedTrue");
+        isSelected = true;
+        methodCallTask = Tasks.forResult(null);
       default:
         result.notImplemented();
         return;

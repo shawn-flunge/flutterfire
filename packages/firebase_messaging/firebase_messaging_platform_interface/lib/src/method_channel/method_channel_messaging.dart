@@ -51,7 +51,11 @@ void _firebaseMessagingCallbackDispatcher() {
         // ignore: avoid_print
         print(e);
       }
-    } else {
+    } else if(call.method == 'MessagingBackground#askIsSelected'){
+      // _channel.
+      
+    } 
+    else {
       throw UnimplementedError('${call.method} has not been implemented');
     }
   });
@@ -389,5 +393,16 @@ class MethodChannelFirebaseMessaging extends FirebaseMessagingPlatform {
   Future<void> callTemp() async{
     channel.invokeListMethod<void>('Messaging#temp');
   }
+
+  @override
+  void setIsSelectedTrue() {
+    channel.invokeMethod('Messaging#setIsSelectedFalse');    
+  }
+
+  @override
+  void setIsSelectedFalse(){
+    channel.invokeMethod('Messaging#setIsSelectedTrue');
+  }
+  
 
 }

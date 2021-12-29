@@ -113,6 +113,14 @@ abstract class FirebaseMessagingPlatform extends PlatformInterface {
     throw UnimplementedError('callTemp() is not implemented');
   }
 
+  void setIsSelectedTrue(){
+    throw UnimplementedError('setIsSelectedTrue() is not implemented');
+  }
+
+  void setIsSelectedFalse(){
+    throw UnimplementedError('setIsSelectedTrue() is not implemented');
+  }
+
   /// Enables delegates to create new instances of themselves if a none default
   /// [FirebaseApp] instance is required by the user.
   @protected
