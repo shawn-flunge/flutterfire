@@ -103,16 +103,7 @@ abstract class FirebaseMessagingPlatform extends PlatformInterface {
       instance.registerBackgroundMessageHandler(handler);
     }
   }
-  static callMessagingTemp(){
-    print('callMessagingTemp');
-    const MethodChannel _channel = MethodChannel(
-      'plugins.flutter.io/firebase_messaging',
-    );
 
-    _channel.invokeMethod<void>('Messaging#temp');
-  }
-
-  
 
   // Future<void> callTemp() async{
   //   // _instance!.callTemp();
