@@ -16,6 +16,7 @@ NSString *const kMessagingArgumentMessage = @"message";
 NSString *const kMessagingArgumentAdditionalData = @"additionalData";
 NSString *const kMessagingPresentationOptionsUserDefaults =
     @"flutter_firebase_messaging_presentation_options";
+static BOOL isBackgroundRunning = NO;
 
 @implementation FLTFirebaseMessagingPlugin {
   FlutterMethodChannel *_channel;
@@ -138,10 +139,21 @@ NSString *const kMessagingPresentationOptionsUserDefaults =
     [self messagingUnsubscribeFromTopic:call.arguments withMethodCallResult:methodCallResult];
   } else if ([@"Messaging#startBackgroundIsolate" isEqualToString:call.method]) {
     methodCallResult.success(nil);
-  } else if ([@"Messaging#answerIsSelected" isEqualToString:call.method]) {
-    NSLog(@"FLTFirebaseMessaging: called Messaging#answerIsSelected");
+  } else if ([@"Messaging#askIsSelected" isEqualToString:call.method]) {
+    _channel
+    NSLog(@"FLTFirebaseMessaging: called Messaging#askIsSelected");
+    _channel invokeMethod:@"Messaging#answerIsSelected" arguments:isBackgroundRunning];
     methodCallResult.success(nil);
-  } else {
+  } else if ([@"Messaging#setIsSelectedTrue" isEqualToString:call.method]) {
+    NSLog(@"FLTFirebaseMessaging: called Messaging#setIsSelectedTrue");
+    isBackgroundRunning = YES;
+    methodCallResult.success(nil);
+  } else if ([@"Messaging#setIsSelectedFalse" isEqualToString:call.method]) {
+    NSLog(@"FLTFirebaseMessaging: called Messaging#setIsSelectedFalse");
+    isBackgroundRunning = NO;
+    methodCallResult.success(nil);
+  }
+  else {
     methodCallResult.success(FlutterMethodNotImplemented);
   }
 }
