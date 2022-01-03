@@ -138,6 +138,9 @@ NSString *const kMessagingPresentationOptionsUserDefaults =
     [self messagingUnsubscribeFromTopic:call.arguments withMethodCallResult:methodCallResult];
   } else if ([@"Messaging#startBackgroundIsolate" isEqualToString:call.method]) {
     methodCallResult.success(nil);
+  } else if ([@"Messaging#answerIsSelected" isEqualToString:call.method]) {
+    NSLog(@"FLTFirebaseMessaging: called Messaging#answerIsSelected");
+    methodCallResult.success(nil);
   } else {
     methodCallResult.success(FlutterMethodNotImplemented);
   }
