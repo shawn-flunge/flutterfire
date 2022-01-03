@@ -22,7 +22,7 @@ NSString *const kMessagingPresentationOptionsUserDefaults =
   FlutterMethodChannel *_channel;
   NSObject<FlutterPluginRegistrar> *_registrar;
   NSDictionary *_initialNotification;
-  static BOOL isBackgroundRunning = NO;
+    
     
 #ifdef __FF_NOTIFICATIONS_SUPPORTED_PLATFORM
   API_AVAILABLE(ios(10), macosx(10.14))
@@ -105,7 +105,7 @@ NSString *const kMessagingPresentationOptionsUserDefaults =
 
   FLTFirebaseMethodCallResult *methodCallResult =
       [FLTFirebaseMethodCallResult createWithSuccess:flutterResult andErrorBlock:errorBlock];
-
+    static BOOL isBackgroundRunning = NO;
   if ([@"Messaging#getInitialMessage" isEqualToString:call.method]) {
     methodCallResult.success([self copyInitialNotification]);
   } else if ([@"Messaging#deleteToken" isEqualToString:call.method]) {
