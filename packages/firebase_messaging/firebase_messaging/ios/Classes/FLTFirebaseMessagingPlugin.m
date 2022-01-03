@@ -17,6 +17,7 @@ NSString *const kMessagingArgumentAdditionalData = @"additionalData";
 NSString *const kMessagingPresentationOptionsUserDefaults =
     @"flutter_firebase_messaging_presentation_options";
 
+static BOOL isBackgroundRunning;
 
 @implementation FLTFirebaseMessagingPlugin {
   FlutterMethodChannel *_channel;
@@ -44,7 +45,7 @@ NSString *const kMessagingPresentationOptionsUserDefaults =
   if (self) {
     _channel = channel;
     _registrar = registrar;
-
+      
     // Application
     // Dart -> `getInitialNotification`
     // ObjC -> Initialize other delegates & observers
@@ -58,6 +59,7 @@ NSString *const kMessagingPresentationOptionsUserDefaults =
 #endif
              object:nil];
   }
+    isBackgroundRunning = NO;
   return self;
 }
 
@@ -105,7 +107,7 @@ NSString *const kMessagingPresentationOptionsUserDefaults =
 
   FLTFirebaseMethodCallResult *methodCallResult =
       [FLTFirebaseMethodCallResult createWithSuccess:flutterResult andErrorBlock:errorBlock];
-    static BOOL isBackgroundRunning = NO;
+    
   if ([@"Messaging#getInitialMessage" isEqualToString:call.method]) {
     methodCallResult.success([self copyInitialNotification]);
   } else if ([@"Messaging#deleteToken" isEqualToString:call.method]) {
