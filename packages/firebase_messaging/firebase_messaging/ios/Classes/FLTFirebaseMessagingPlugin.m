@@ -22,7 +22,7 @@ NSString *const kMessagingPresentationOptionsUserDefaults =
   FlutterMethodChannel *_channel;
   NSObject<FlutterPluginRegistrar> *_registrar;
   NSDictionary *_initialNotification;
-  BOOL isBackgroundRunning = NO;
+  static BOOL isBackgroundRunning = NO;
     
 #ifdef __FF_NOTIFICATIONS_SUPPORTED_PLATFORM
   API_AVAILABLE(ios(10), macosx(10.14))
@@ -141,7 +141,8 @@ NSString *const kMessagingPresentationOptionsUserDefaults =
   } else if ([@"Messaging#startBackgroundIsolate" isEqualToString:call.method]) {
     methodCallResult.success(nil);
   } else if ([@"Messaging#askIsSelected" isEqualToString:call.method]) {
-    NSLog(@"FLTFirebaseMessaging: called Messaging#askIsSelected %@", self.isBackgroundRunning);
+      
+    NSLog(@"FLTFirebaseMessaging: called Messaging#askIsSelected %@", FLTFirebaseMessagingPlugin.isBackgroundRunning);
 //      [_channel invokeMethod:@"Messaging#answerIsSelected" arguments:isBackgroundRunning : YES ? NO];
     methodCallResult.success(nil);
   } else if ([@"Messaging#setIsSelectedTrue" isEqualToString:call.method]) {
