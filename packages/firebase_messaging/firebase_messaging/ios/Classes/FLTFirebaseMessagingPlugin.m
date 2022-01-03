@@ -140,7 +140,6 @@ static BOOL isBackgroundRunning = NO;
   } else if ([@"Messaging#startBackgroundIsolate" isEqualToString:call.method]) {
     methodCallResult.success(nil);
   } else if ([@"Messaging#askIsSelected" isEqualToString:call.method]) {
-    _channel
     NSLog(@"FLTFirebaseMessaging: called Messaging#askIsSelected");
     _channel invokeMethod:@"Messaging#answerIsSelected" arguments:isBackgroundRunning];
     methodCallResult.success(nil);
